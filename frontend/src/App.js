@@ -103,7 +103,7 @@ renderTitleOptions = () => {
           title: {book.volumeInfo.title}  <br/>
           author: {book.volumeInfo.authors}  <br/>
           publisher: {book.volumeInfo.publisher} <br/>
-         <Link to={book.volumeInfo.infoLink}/> 
+         <a>{book.volumeInfo.infoLink} </a> 
          info:
          </li>)
         
