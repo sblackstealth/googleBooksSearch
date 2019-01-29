@@ -90,18 +90,21 @@ class App extends Component {
   }
   this.renderTitleOptions()
 }
+// linkToInfo=(event)=>{
+// <Link>this.info.value </Link>
+// }
   
 renderTitleOptions = () => {
   
      return this.state.bookArray.map(book => {
         return (
         <li className='listItem'>
-          <img className='listItemImage' alt="not available" src={book.volumeInfo.imageLinks.thumbnail}/>
+          <img className='listItemImage' alt="not available" src={book.volumeInfo.imageLinks.thumbnail} onclick={}/>
           title: {book.volumeInfo.title}  <br/>
           author: {book.volumeInfo.authors}  <br/>
           publisher: {book.volumeInfo.publisher} <br/>
-         {/* <Link to=> */}
-         {book.volumeInfo.infoLink}
+         <Link to={book.volumeInfo.infoLink}/> 
+         info:
          </li>)
         
     })
