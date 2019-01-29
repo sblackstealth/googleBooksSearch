@@ -8,14 +8,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: green;
 }
 
 .App-link {
@@ -24,5 +24,12 @@
 
 .listItem{
   display: flex;
+  padding: 5px;
   
+}
+.itemLink{
+  position: relative ;
+}
+.googleLogo{
+  opacity: 80%;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {BrowserRouter,Route,Link} from 'react-router-dom'
 import axios from 'axios';
 import './App.css';
 
@@ -18,9 +17,6 @@ class App extends Component {
     this.setState({
       [event.target.className]:event.target.value
     });
-    console.log(event.target.value)
-    console.log(event.target.className)
-    console.log(this.state)
   
    };
   makeQuery=()=>{
@@ -88,44 +84,49 @@ class App extends Component {
     console.alert('Please type a search query')
   
   }
-  this.renderTitleOptions()
+  this.setState({
+    titleQuery:'',
+    authorQuery: '',
+    publisherQuery:'',
+  })
+ 
+  
+
 }
-// linkToInfo=(event)=>{
-// <Link>this.info.value </Link>
-// }
+
   
 renderTitleOptions = () => {
+  
   
      return this.state.bookArray.map(book => {
         return (
         <li className='listItem'>
-          <img className='listItemImage' alt="not available" src={book.volumeInfo.imageLinks.thumbnail} onclick={}/>
+          <img className='listItemImage' alt="not available" src={book.volumeInfo.imageLinks.thumbnail}/>
           title: {book.volumeInfo.title}  <br/>
           author: {book.volumeInfo.authors}  <br/>
           publisher: {book.volumeInfo.publisher} <br/>
-         <a>{book.volumeInfo.infoLink} </a> 
-         info:
+         <a  className="itemLink" href={book.volumeInfo.infoLink}>additional info </a> <br/>
          </li>)
         
     })
-    
 
    }
   
   render() {
+    console.log("State:", this.state)
     return (
       <div className="App">
         <header className="App-header">
-        <div><img alt='not available' src="http://www.francescomptonlibrary.com/uploads/5/2/1/5/52157523/7851018.jpg?257"/>
+        <div><img className="googleLogo" alt='not available' src="http://www.francescomptonlibrary.com/uploads/5/2/1/5/52157523/7851018.jpg?257"/>
         <h3>Book Search</h3></div>
         <div>
           <ul id='bookL' className='bookList'>
           {this.renderTitleOptions()}
           </ul>
         </div>
-          <input placeholder="enter title here" className="titleQuery" onChange={this.handleInput}></input>
-        <input placeholder="enter author here" className="authorQuery" onChange={this.handleInput}></input>
-        <input placeholder="enter publisher here" className="publisherQuery" onChange={this.handleInput}></input>
+          <input placeholder="enter title here" value={this.state.titleQuery} className="titleQuery" onChange={this.handleInput}></input>
+        <input placeholder="enter author here" value={this.state.authorQuery} className="authorQuery" onChange={this.handleInput}></input>
+        <input placeholder="enter publisher here" value={this.state.publisherQuery} className="publisherQuery" onChange={this.handleInput}></input>
         <button onClick={this.makeQuery}>Search</button>
         </header>
      
