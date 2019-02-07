@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import SearchForm from './searchForm';
 import BookList from './bookList';
 import axios from 'axios';
@@ -16,7 +16,7 @@ class Url extends Component {
     makeQuery = () => {
         console.log('query:',this.state.Query)
         if (this.state.Query) {
-            axios.get(`'https://www.googleapis.com/books/v1/volumes?q='${this.state.Query}&maxResults=40`)
+            axios.get(`'https://www.googleapis.com/books/v1/volumes?q='${this.state.Query}&maxResults=40 `)
             .then(res => {
                 if (res.data.items !== undefined) {
                 this.setState({
